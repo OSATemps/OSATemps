@@ -133,9 +133,9 @@ return [
 
         'ldap' => [
 
-            'locate_users_by' => 'userprincipalname',
+            'locate_users_by' => 'mail',
 
-            'bind_users_by' => 'distinguishedname',
+            'bind_users_by' => 'cn',
 
         ],
 
@@ -289,7 +289,7 @@ return [
 
     'sync_attributes' => [
 
-        'email' => 'userprincipalname',
+        'email' => 'mail',
 
         'name' => 'cn',
 
