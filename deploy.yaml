@@ -249,6 +249,23 @@ spec:
                     sleep 3
                     ldapadd -x -D "cn=admin,dc=example,dc=org" -w admin -f /container/service/slapd/assets/test/new-user.ldif -H ldap://
                     ldappasswd -s abc123 -D "cn=admin,dc=example,dc=org" -w admin -H ldap:// -x "uid=billy,dc=example,dc=org"
+                    ldapadd -x -D "cn=admin,dc=example,dc=org" -w admin -H ldap:// << EOF
+                    dn: uid=pepe,dc=example,dc=org
+                    uid: pepe
+                    cn: pepe
+                    sn: 3
+                    objectClass: top
+                    objectClass: posixAccount
+                    objectClass: inetOrgPerson
+                    loginShell: /bin/bash
+                    homeDirectory: /home/pepe
+                    uidNumber: 14583103
+                    gidNumber: 14564100
+                    userPassword: {SSHA}j3lBh1Seqe4rqF1+NuWmjhvtAni1JC5A
+                    mail: pepe@example.org
+                    gecos: Pepe User
+                    EOF
+                    ldappasswd -s abc123 -D "cn=admin,dc=example,dc=org" -w admin -H ldap:// -x "uid=pepe,dc=example,dc=org"
 ---
 apiVersion: v1
 kind: Service

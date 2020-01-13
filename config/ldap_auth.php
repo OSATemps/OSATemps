@@ -135,7 +135,7 @@ return [
 
             'locate_users_by' => 'mail',
 
-            'bind_users_by' => 'cn',
+            'bind_users_by' => 'dn',
 
         ],
 
